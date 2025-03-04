@@ -1,0 +1,172 @@
+<?php
+/*
+Theme Name: Edufin
+Theme URI: https://example.com/edufin
+Author: Your Name
+Author URI: https://example.com
+Description: A modern e-learning platform theme for WordPress with Tailwind CSS, featuring live search, course management, and a unique flipbook-style course viewer.
+Version: 1.0.0
+Requires at least: 5.8
+Tested up to: 6.2
+Requires PHP: 6.7.2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: edufin
+Tags: education, e-learning, courses, tailwind, custom-menu, custom-logo, featured-images, translation-ready
+*/
+
+/* Custom styles that complement Tailwind CSS */
+
+/* Announcement scroll animation */
+.announcement-scroll {
+    animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Course conversation layout */
+.course-conversation,
+.course-content {
+    @apply max-w-3xl mx-auto space-y-6 py-8;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.conversation-message {
+    @apply flex gap-4 items-start;
+}
+
+.conversation-message.teacher {
+    @apply flex-row;
+}
+
+.conversation-message.student {
+    @apply flex-row-reverse;
+}
+
+.message-avatar {
+    @apply w-10 h-10 rounded-full overflow-hidden flex-shrink-0;
+}
+
+.message-content {
+    @apply bg-white rounded-lg shadow-sm p-4 max-w-[80%];
+}
+
+.teacher .message-content {
+    @apply bg-emerald-50 rounded-tr-none;
+}
+
+.student .message-content {
+    @apply bg-white rounded-tl-none;
+}
+
+.message-time {
+    @apply text-xs text-gray-500 mt-1;
+}
+
+/* Pagination styling */
+.pagination {
+    @apply flex justify-center gap-2;
+}
+
+.pagination .page-numbers {
+    @apply px-4 py-2 rounded-lg bg-white text-emerald-600 hover:bg-emerald-50 transition-colors;
+}
+
+.pagination .current {
+    @apply bg-emerald-600 text-white hover:bg-emerald-700;
+}
+
+/* Sidebar menu styling */
+.menu {
+    @apply space-y-1;
+}
+
+.menu-item {
+    @apply block px-4 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors;
+}
+
+.current-menu-item > a {
+    @apply bg-emerald-50 text-emerald-600 font-medium;
+}
+
+/* Form elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent;
+}
+
+/* Button hover effects */
+.btn-hover-effect {
+    @apply relative overflow-hidden;
+}
+
+.btn-hover-effect::after {
+    content: '';
+    @apply absolute inset-0 bg-white opacity-0 transition-opacity;
+}
+
+.btn-hover-effect:hover::after {
+    @apply opacity-10;
+}
+
+/* Card hover effects */
+.card-hover {
+    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    @apply w-6 h-6 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin;
+}
+
+/* Toast notifications */
+.toast {
+    @apply fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300;
+}
+
+.toast-success {
+    @apply bg-emerald-500 text-white;
+}
+
+.toast-error {
+    @apply bg-red-500 text-white;
+}
+
+/* Modal animations */
+.modal-enter {
+    animation: modal-fade-in 0.3s ease-out;
+}
+
+@keyframes modal-fade-in {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+    h1 {
+        @apply text-3xl;
+    }
+    h2 {
+        @apply text-2xl;
+    }
+    h3 {
+        @apply text-xl;
+    }
+}
